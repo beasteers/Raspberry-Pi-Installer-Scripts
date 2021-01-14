@@ -23,7 +23,7 @@ I2S microphone support.
     else:
         shell.bail("Unsupported Pi board detected.")
 
-    auto_load = shell.prompt("Auto load module at boot?")
+    auto_load = shell.prompt("Auto load module at boot?", force_arg="autoload")
 
     print("""
 Installing...""")
@@ -59,7 +59,7 @@ Installing...""")
 
 Settings take effect on next boot.
 """)
-    if not shell.prompt("REBOOT NOW?", default="n"):
+    if not shell.prompt("REBOOT NOW?", default="n", force_arg="reboot"):
         print("Exiting without reboot.")
         shell.exit()
     print("Reboot started...")
